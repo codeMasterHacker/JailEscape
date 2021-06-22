@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class AlertGuards : MonoBehaviour
 {
-    public GameObject guard1;
-    public GameObject guard2;
+    public GameObject[] guards;
 
     // Start is called before the first frame update
     void Start()
@@ -23,8 +22,10 @@ public class AlertGuards : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            guard1.GetComponent<Guard>().alerted = true;
-            guard2.GetComponent<Guard>().alerted = true;
+            for (int i = 0; i < guards.Length; i++)
+            {
+                guards[i].GetComponent<Guard>().alerted = true;
+            }
         }
     }
 }
